@@ -27,7 +27,11 @@ gem 'paperclip', '~> 4.3.0'
 gem 'bootstrap-sass', '~> 3.2.0.2'
 gem 'mailboxer'
 gem 'simple_hashtag'
+<<<<<<< HEAD
 gem 'babosa'
+=======
+gem 'acts-as-taggable-on'
+>>>>>>> origin/app-
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get "mailbox/inbox" => "mailbox#inbox", as: :mailbox_inbox
   get "mailbox/sent" => "mailbox#sent", as: :mailbox_sent
   get "mailbox/trash" => "mailbox#trash", as: :mailbox_trash
-  get "hashtags/:hashtag",   to: "hashtags#show",      as: :hashtag
+  get "hashtags/:hashtag",   to: "posts#index",      as: :hashtag
   get "hashtags",            to: "hashtags#index",     as: :hashtags
   match ':id/setting' => 'users#update', via: [:put, :patch]
   resources :conversations do
