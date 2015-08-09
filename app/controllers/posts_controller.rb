@@ -55,7 +55,7 @@ class PostsController < ApplicationController
 		redirect_to root_path 
 	end
 
-  def like
+  def likes
     @user = current_user 
     @post = Post.find(params[:id])
     @user.toggle_like!(@post)
