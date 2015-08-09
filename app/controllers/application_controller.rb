@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   def conversation
     @conversation ||= mailbox.conversations.find(params[:id])
   end
+
  
   protected
 

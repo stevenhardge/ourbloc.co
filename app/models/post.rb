@@ -7,4 +7,6 @@ class Post < ActiveRecord::Base
 	has_attached_file :image, styles: { medium: "300x300>" }
 	validates_attachment_file_name :image, :matches => [/png\Z/, /jpe?g\Z/]
   acts_as_taggable	  	
+  acts_as_likeable
+  acts_as_mentioner
 end

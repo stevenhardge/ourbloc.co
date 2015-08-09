@@ -16,7 +16,18 @@ class UsersController < ApplicationController
       	render 'edit'
     	end
   	end
-
+    
+    
+    def follow
+        @user = User.find(params[:user])
+        current_user.follow!(@user)
+    end
+    
+    def unfollow
+        @user = User.find(params[:user])
+        current_user.unfollow!(@user)
+    end
+    
   	private
 
     def set_user

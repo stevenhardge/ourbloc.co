@@ -55,6 +55,13 @@ class PostsController < ApplicationController
 		redirect_to root_path 
 	end
 
+  def like
+    @user = current_user 
+    @post = Post.find(params[:id])
+    @user.toggle_like!(@post)
+    redirect_to :back, notice: "Liked this post successfully!"
+  end
+
 
 	private
 

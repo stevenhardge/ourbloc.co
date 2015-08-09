@@ -6,6 +6,12 @@ class CommentsController < ApplicationController
 
 		redirect_to post_path(@post)
 	end
+  
+  def likes
+		@post = Post.find(params[:post_id])
+
+
+  end
 
 	def destroy
 		@post = Post.find(params[:post_id])
