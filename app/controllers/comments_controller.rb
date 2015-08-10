@@ -7,10 +7,12 @@ class CommentsController < ApplicationController
 		redirect_to post_path(@post)
 	end
   
-  def likes
-		@post = Post.find(params[:post_id])
-
-
+  def like
+    @user = current_user
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+    @user.toggle_like!(@comment)
+    redirect_to :back
   end
 
 	def destroy

@@ -5,8 +5,12 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :posts do
-  	resources :comments
+  	resources :comments do
+      get 'like', on: :member
+    end
   end
+
+
 
 
   root "posts#index"
