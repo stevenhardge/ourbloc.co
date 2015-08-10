@@ -7,7 +7,7 @@
 	</div>
 	
 	<% if user_signed_in? %>
-    <p><%= link_to 'Like', like_post_comment_path(@post, comment), class: "button" %></p>
+    <p><%= link_to 'Like', like_post_comment_path(@post, comment, anchor: comment.id), class: "button" %></p>
 		<p><%= link_to 'Delete', [comment.post, comment], 
 									method: :delete, 
 									class: "button", 
