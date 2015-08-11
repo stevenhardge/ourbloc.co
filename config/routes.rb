@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     end
   end
 
+ match 'users/:id' => 'users#show', via: :get
 
 
 
