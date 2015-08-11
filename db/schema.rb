@@ -200,6 +200,15 @@ ActiveRecord::Schema.define(version: 20150807212653) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.string   "school"
+    t.string   "major"
+    t.integer  "gradyear"
+    t.text     "experience"
+    t.text     "skills"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

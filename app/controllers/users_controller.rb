@@ -2,8 +2,16 @@ class UsersController < ApplicationController
 	before_action :authenticate_owner!
 	before_filter :set_user, only: [:show, :edit, :update]
 
-  	def show
-  	end
+
+    def show
+      #add methods here
+      @user = User.find(params[:id])
+
+      respond_to do |format|
+        format.html 
+      end
+    end
+
 
   	def edit
     	@user.build_profile if @user.profile.nil?
@@ -43,3 +51,4 @@ class UsersController < ApplicationController
     end
 
 end
+    
