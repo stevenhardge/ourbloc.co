@@ -5,17 +5,21 @@
 	<h1 class="title">
 		<%= @post.title %>
 	</h1>
-  <div>
-    Likes: <%= @post.likers(User).count %>
-  </div>
+  <% if @post.likers(User).count != 0 %>
+    <div>
+      Likes: <%= @post.likers(User).count %>
+    </div>
+  <% end %>
 
 
 	<p class="date">
 		Submitted <%= time_ago_in_words(@post.created_at) %> Ago
 		
 		<% if user_signed_in? %>
+      <% if @post.user.id == current_user.id %>
 			| <%= link_to 'Edit', edit_post_path(@post) %> 
-			| <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are You Sure?' } %>
+      | <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are You Sure?' } %>
+      <% end %>
       | <%= link_to 'Like', likes_path(@post) %>
 		<% end %>
 	</p>

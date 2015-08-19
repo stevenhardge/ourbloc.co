@@ -7,7 +7,9 @@ class PostsController < ApplicationController
       if params[:hashtag]
         @posts = Post.tagged_with(params[:hashtag]).order('created_at DESC')
       else
-        @posts = Post.all.order('created_at DESC')
+       # @posts = Post.all.order('created_at DESC')
+       following_ids = current_user.followees(User).map(&:id)
+       @posts = Post.where(user_id: following_ids).order("created_at DESC")
       end
     end
 	end
