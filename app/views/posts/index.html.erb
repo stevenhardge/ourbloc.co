@@ -5,6 +5,11 @@
 			<h2 class="user"> Me </h2>
 			<% else %>
 				<h2 class ="user"><%= post.user.name %>
+        <% if current_user.follows?(post.user) %>
+          <p class="data"><%= link_to 'Unfollow ' + post.user.name , follow_path(post) %></p>
+        <% else %>
+          <p class="data"><%= link_to 'Follow ' + post.user.name , follow_path(post) %></p>
+        <%end %>
 		<%end %>
 		<h2 class="title"><%= link_to post.title, post %></h2>
 		<h2 class="body"><%= linkify_hashtags(post.body) %></h2>

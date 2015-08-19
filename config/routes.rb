@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get "hashtags/:hashtag",   to: "posts#index",      as: :hashtag
   get "hashtags",            to: "hashtags#index",     as: :hashtags
   get "post/:id/likes", to: 'posts#likes', as: :likes
+  get "post/:id/follow", to: 'posts#follow', as: :follow
 
   match ':id/setting' => 'users#update', via: [:put, :patch]
   resources :conversations do

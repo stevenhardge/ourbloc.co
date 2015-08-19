@@ -62,6 +62,13 @@ class PostsController < ApplicationController
     redirect_to :back, notice: "Liked this post successfully!"
   end
 
+  def follow
+    @user = current_user
+    @post = Post.find(params[:id])
+    @postowner = User.find(@post.user.id)
+    @user.toggle_follow!(@postowner)
+    redirect_to :back, notice: "Followed this post successfully!"
+  end
 
 	private
 
